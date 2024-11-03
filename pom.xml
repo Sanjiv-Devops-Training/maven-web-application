@@ -1,16 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.mt</groupId>
     <artifactId>maven-web-application</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    
+
     <name>maven-web-application</name>
     <description>Maven Web Project for Java Project</description>
-    
+
     <organization>
         <name>Mithun Technologies</name>
         <url>http://mithuntechnologies.com/</url>
@@ -21,7 +21,7 @@
         <spring.version>5.1.2.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
         <log4j.version>1.2.17</log4j.version>
-        <sonar.host.url>http://13.232.199.157:9000/</sonar.host.url> <!-- Corrected URL -->
+        <sonar.host.url>http://13.232.199.157:9000/</sonar.host.url>
         <sonar.login>squ_71817690eef2384cc9378677a0eb06d4c6734578</sonar.login>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -33,7 +33,7 @@
             <artifactId>json</artifactId>
             <version>20160212</version>
         </dependency>
-        
+
         <!-- Test dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -77,32 +77,28 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        
     </dependencies>
-    
+
     <distributionManagement>
         <repository>
             <id>nexus</id>
             <name>Mithun Technologies Releases Nexus Repository</name>
             <url>http://172.31.18.88:9980/mithuntechnologies/repository/canarabank-releases/</url>
         </repository>
-        
         <snapshotRepository>
             <id>nexus</id>
             <name>Mithun Technologies Snapshot Nexus Repository</name>
             <url>http://172.31.18.88:9980/mithuntechnologies/repository/canarabank-snapshot/</url>
         </snapshotRepository>
-        
     </distributionManagement>
-    
+
     <build>
         <finalName>maven-web-application</finalName>
-        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
@@ -122,17 +118,10 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                    <wtpversion>2.0</wtpversion>
-                    <wtpContextName>maven-web-application</wtpContextName>
-                </configuration>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.0.0.4121</version> <!-- Explicit version specified -->
             </plugin>
         </plugins>
     </build>
-    
 </project>
